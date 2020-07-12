@@ -1,0 +1,60 @@
+﻿using System;
+
+namespace Snake_Game_v2
+{
+    class Food
+    {
+        int X { set; get; }
+        int Y { set; get; }
+        int Score { set; get; }
+        
+        Random rnd = new Random();
+        //ustawienie stałych wartości do możliwości stworzenia pozycji punktowanych  "food"
+        public void Restart()
+        {
+            X = Game.Width / 2;
+            Y = Game.Height / 2 - 5;
+            Score = 0;
+        }
+
+        void Rand(int width, int height, Snake snake)
+        {
+            X = rnd.Next(1, width);
+            Y = rnd.Next(1, height);
+
+            for (int i = snake.Length; i >= 1; i--)
+            {
+                if (snake.X[i - 1] == X && snake.Y[i - 1] == Y)
+                {
+                    Rand(width, height, snake);
+                }
+            }
+        }
+        void draw()
+        { //ustawienie wyglądu pozycji punktowanych
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(X, Y);
+            Console.Write("■");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void Logic(ref Snake snake)
+        {
+            draw();
+            if (snake.X[0] == X) 
+            { //informacja dla aplikacji o punktacji za zebrany punkt do podliczania wyniku gracza
+                if (snake.Y[0]  == Y) 
+                {
+                    snake.Length++;
+                    Score += 100;
+                    Console.SetCursorPosition(Game.Width / 2 -4, Game.Height + 2);
+                    Console.Write($"Score: {Score}");
+                    Rand(Game.Width, Game.Height, snake);
+                }
+            }
+        }
+
+    }
+}
+
+
