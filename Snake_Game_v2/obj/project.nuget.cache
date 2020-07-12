@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YLGd++KUrYZXUgkdx1vobYzDnJkxz5WnghEUm41PrB3VhDbG8Q1f6cSRup6gWvbjrqZy6BB1uhN82gj02DhkjA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Domin\\source\\repos\\Snake_Game_v2\\Snake_Game_v2\\Snake_Game_v2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Domin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
